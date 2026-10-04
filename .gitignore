@@ -10,3 +10,4 @@ out/
 !.env.example
 .DS_Store
 coverage/
+next-env.d.ts

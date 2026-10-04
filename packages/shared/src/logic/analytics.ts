@@ -23,7 +23,8 @@ export function schoolKpis(db: EduLinkDatabase, today = DEMO_TODAY): SchoolKpis 
   const absences = todays.filter((a) => ABSENCE_STATUSES.includes(a.status)).length;
   const late = todays.filter((a) => a.status === 'late').length;
   const parents = db.users.filter((u) => u.role === 'parent');
-  const critical = db.announcements.find((a) => a.requiresAck);
+  // Read-receipt rate of the oldest critical alert still running (a brand-new alert would read 0%).
+  const critical = db.announcements.filter((a) => a.requiresAck).sort((a, b) => a.publishedAt.localeCompare(b.publishedAt))[0];
   return {
     students: db.students.length,
     teachers: db.teachers.length,

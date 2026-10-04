@@ -58,7 +58,7 @@ export default function EventDetail() {
             {options.map((o) => {
               const selected = part?.response === o.value;
               return (
-                <Pressable key={o.value} onPress={() => rsvp(ev.id, student.id, o.value)} accessibilityRole="radio" accessibilityState={{ checked: selected }} style={{ flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: 56, paddingHorizontal: space.lg, borderRadius: radius.md, borderWidth: 1.5, borderColor: selected ? c.primary : c.border, backgroundColor: selected ? c.primarySoft : c.card }}>
+                <Pressable key={o.value} onPress={() => rsvp(ev.id, student.id, o.value)} accessibilityRole="radio" accessibilityLabel={o.label} accessibilityState={{ checked: selected }} style={{ flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: 56, paddingHorizontal: space.lg, borderRadius: radius.md, borderWidth: 1.5, borderColor: selected ? c.primary : c.border, backgroundColor: selected ? c.primarySoft : c.card }}>
                   <Icon name={o.icon} size={22} color={selected ? c.primary : c.textSecondary} />
                   <Txt variant="bodyStrong" tone={selected ? 'primary' : 'default'} style={{ flex: 1 }}>
                     {o.label}

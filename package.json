@@ -12,6 +12,11 @@
     "mobile:web": "npm run web --workspace apps/mobile",
     "admin": "npm run dev --workspace apps/admin",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "admin:build": "npm run build --workspace apps/admin",
+    "db:migrate": "npm run migrate --workspace packages/db",
+    "db:seed": "npm run seed --workspace packages/db",
+    "db:verify": "npm run verify --workspace packages/db",
+    "db:setup": "npm run setup --workspace packages/db"
   }
 }
