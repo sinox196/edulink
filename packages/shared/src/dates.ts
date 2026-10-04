@@ -17,10 +17,17 @@ export function nowISO(): ISODateTime {
   return DEMO_NOW;
 }
 
-/** Real wall-clock timestamp anchored on the demo day (used for new messages, etc.). */
+const SESSION_START = Date.now();
+
+/**
+ * "Live" timestamp on the demo clock: starts at 16:45 on the demo day and advances with real
+ * elapsed time, so actions taken during a demo (messages, QR check-ins…) stay coherent.
+ */
 export function stampNow(): ISODateTime {
-  const d = new Date();
-  return `${DEMO_TODAY}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  const elapsed = Math.floor((Date.now() - SESSION_START) / 1000);
+  const [h, m] = DEMO_TIME.split(':').map(Number);
+  const total = Math.min(h * 3600 + m * 60 + elapsed, 23 * 3600 + 59 * 60 + 59);
+  return `${DEMO_TODAY}T${pad(Math.floor(total / 3600))}:${pad(Math.floor((total % 3600) / 60))}:${pad(total % 60)}`;
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -122,6 +129,10 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export function monthName(month0: number, locale: Locale): string {
   return MONTHS[locale][month0];
+}
+
+export function monthShort(month0: number, locale: Locale): string {
+  return MONTHS_SHORT[locale][month0];
 }
 
 export function weekdayName(isoDay: number, locale: Locale, short = false): string {
