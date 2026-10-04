@@ -1,0 +1,24 @@
+{
+  "name": "@edulink/db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Schéma PostgreSQL d'EduLink (Railway), migrations, données de démonstration et tests de sécurité RLS.",
+  "scripts": {
+    "migrate": "tsx src/migrate.ts",
+    "seed": "tsx src/seed.ts",
+    "verify": "tsx src/verify-rls.ts",
+    "setup": "npm run migrate && npm run seed && npm run verify",
+    "typecheck": "tsc --noEmit",
+    "seed:force": "tsx src/seed.ts --force"
+  },
+  "dependencies": {
+    "@edulink/shared": "*",
+    "pg": "^8.23.1",
+    "tsx": "^4.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.23.1",
+    "typescript": "~6.0.3"
+  }
+}

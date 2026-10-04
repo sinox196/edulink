@@ -1,0 +1,17 @@
+{
+  "name": "edulink",
+  "private": true,
+  "version": "1.0.0",
+  "description": "EduLink — plateforme scolaire connectée (parents, élèves, enseignants, administration)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile": "npm run start --workspace apps/mobile",
+    "mobile:web": "npm run web --workspace apps/mobile",
+    "admin": "npm run dev --workspace apps/admin",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  }
+}

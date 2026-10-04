@@ -1,0 +1,17 @@
+{
+  "name": "@edulink/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modèle de domaine, données de démonstration, i18n et logique métier partagés entre l'application mobile et le tableau de bord d'administration.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/__tests__/*.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  }
+}

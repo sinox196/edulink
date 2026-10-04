@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "EduLink",
+    "slug": "edulink",
+    "scheme": "edulink",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "web": { "favicon": "./assets/favicon.png", "output": "single", "bundler": "metro" },
+    "plugins": ["expo-router", "expo-font", "expo-sharing", "expo-splash-screen", "expo-secure-store"]
+  }
+}
